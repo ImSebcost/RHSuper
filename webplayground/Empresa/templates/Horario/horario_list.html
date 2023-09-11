@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Lista de Horarios</h1>
+ 
+  <a href="{% url 'horario_create' %}" class="btn btn-danger mb-3">Agregar Horario</a>
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Día de la Semana</th>
+        <th>Hora de Inicio</th>
+        <th>Hora de Finalización</th>
+        <th>Empleado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for horario in horarios %}
+        <tr>
+          <td>{{ horario.get_dia_semana_display }}</td>
+          <td>{{ horario.hora_inicio }}</td>
+          <td>{{ horario.hora_finalizacion }}</td>
+          <td>{{ horario.empleado }}</td>
+          <td>
+            <a href="{% url 'horario_edit' horario.pk %}" class="btn btn-sm btn-warning">Editar</a>
+            <!-- Agrega más acciones si es necesario -->
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No hay horarios disponibles.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a
+  <a href="{% url 'empleado_list' %}" class="btn btn-secondary mt-3">Volver a la lista de empleados</a>
+</div>
+{% endblock %}

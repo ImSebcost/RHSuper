@@ -1,0 +1,27 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h1>Crear Horario</h1>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="{{ form.dia_semana.id_for_label }}">Día de la Semana:</label>
+      {{ form.dia_semana }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.hora_inicio.id_for_label }}">Hora de Inicio:</label>
+      {{ form.hora_inicio }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.hora_finalizacion.id_for_label }}">Hora de Finalización:</label>
+      {{ form.hora_finalizacion }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.empleado.id_for_label }}">Empleado:</label>
+      {{ form.empleado }}
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+  <a href="{% url 'horario_list' %}" class="btn btn-secondary mt-3">Volver a la lista de horarios</a>
+</div>
+{% endblock %}

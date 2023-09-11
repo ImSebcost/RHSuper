@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="container">
+  <div style="padding-top:50px; text-align:center;">
+    <h1>{{title}}</h1>
+    <div style="display: flex; justify-content: center;">
+      <img src="{% static 'core/img/Imagen de WhatsApp 2023-09-08 a las 15.05.11.jpg' %}" alt="Logo de WhatsApp">
+    </div>
+  </div>
+</div>
+{% endblock %}

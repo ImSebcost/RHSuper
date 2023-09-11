@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h1>Listado de Salarios</h1>
+  <a href="{% url 'salario_create' %}" class="btn btn-danger mb-3">Agregar Salario</a>
+
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Empleado</th>
+        <th>Fecha de Inicio del Periodo</th>
+        <th>Fecha de Fin del Periodo</th>
+        <th>Salario Base</th>
+        <th>Bonificaciones</th>
+        <th>Deducciones</th>
+        <th>Total a Pagar</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for salario in salarios %}
+      <tr>
+        <td>{{ salario.empleado }}</td>
+        <td>{{ salario.fecha_inicio_periodo }}</td>
+        <td>{{ salario.fecha_fin_periodo }}</td>
+        <td>{{ salario.salario_base }}</td>
+        <td>{{ salario.bonificaciones }}</td>
+        <td>{{ salario.deducciones }}</td>
+        <td>{{ salario.total_pagar }}</td>
+        <td>
+          <a href="{% url 'salario_edit' salario.pk %}" class="btn btn-warning btn-sm">Editar</a>
+          <a href="{% url 'salario_delete' salario.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+</div>
+{% endblock %}

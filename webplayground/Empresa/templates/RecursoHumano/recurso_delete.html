@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %}Eliminar Recurso Humano{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Eliminar Recurso Humano</h1>
+  <p>¿Estás seguro de que deseas eliminar este recurso humano?</p>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'recurso_list' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

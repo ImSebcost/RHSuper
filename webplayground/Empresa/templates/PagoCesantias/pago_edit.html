@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %}Editar Pago de Cesantías{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Editar Pago de Cesantías</h1>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+  </form>
+  <a href="{% url 'pago_list' %}" class="btn btn-secondary mt-3">Volver a la lista de Pagos de Cesantías</a>
+</div>
+{% endblock %}

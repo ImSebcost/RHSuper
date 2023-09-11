@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h1>Crear Salario</h1>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+  <a href="{% url 'salario_list' %}" class="btn btn-secondary mt-3">Volver al Listado</a>
+</div>
+{% endblock %}

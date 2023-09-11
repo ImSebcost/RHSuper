@@ -1,0 +1,39 @@
+{% extends "core/base.html" %}
+
+{% block title %}Crear Recurso Humano{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Crear Recurso Humano</h1>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    
+    <!-- Campo "nombre_recurso" -->
+    <div class="form-group">
+      <label for="{{ form.nombre_recurso.id_for_label }}">Nombre de Recurso:</label>
+      {{ form.nombre_recurso }}
+    </div>
+    
+    <!-- Campo "descripcion" -->
+    <div class="form-group">
+      <label for="{{ form.descripcion.id_for_label }}">Descripción:</label>
+      {{ form.descripcion }}
+    </div>
+    
+    <!-- Campo "contacto" -->
+    <div class="form-group">
+      <label for="{{ form.contacto.id_for_label }}">Contacto:</label>
+      {{ form.contacto }}
+    </div>
+    
+    <!-- Campo "departamento_perteneciente" -->
+    <div class="form-group">
+      <label for="{{ form.departamento_perteneciente.id_for_label }}">Departamento Perteneciente:</label>
+      {{ form.departamento_perteneciente }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+  <a href="{% url 'recurso_list' %}" class="btn btn-secondary mt-3">Volver a la lista de Recursos Humanos</a>
+</div>
+{% endblock %}

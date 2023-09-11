@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %}Editar Recurso Humano{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Editar Recurso Humano</h1>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+  </form>
+  <a href="{% url 'recurso_list' %}" class="btn btn-secondary mt-3">Volver a la lista de Recursos Humanos</a>
+</div>
+{% endblock %}

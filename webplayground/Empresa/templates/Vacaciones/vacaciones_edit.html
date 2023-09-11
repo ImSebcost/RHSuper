@@ -1,0 +1,27 @@
+{% extends "core/base.html" %}
+
+{% block title %}Editar Vacaciones{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Editar Vacaciones</h1>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    
+    <!-- Campo "fecha_inicio" -->
+    <div class="form-group">
+      <label for="{{ form.fecha_inicio.id_for_label }}">Fecha de Inicio:</label>
+      {{ form.fecha_inicio }}
+    </div>
+    
+    <!-- Campo "fecha_fin" -->
+    <div class="form-group">
+      <label for="{{ form.fecha_fin.id_for_label }}">Fecha de Fin:</label>
+      {{ form.fecha_fin }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+  <a href="{% url 'vacaciones_list' %}" class="btn btn-secondary mt-3">Volver a la lista de Vacaciones</a>
+</div>
+{% endblock %}

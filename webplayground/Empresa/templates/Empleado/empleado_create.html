@@ -1,0 +1,54 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h1>Crear Empleado</h1>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="input-group mb-3 col-md-6">
+      <label for="{{ form.nombre.id_for_label }}">Nombre: </label>
+      {{ form.nombre }}
+    </div>
+    <div class="input-group mb-3 col-md-6">
+      <label for="{{ form.apellido.id_for_label }}">Apellido: </label>
+      {{ form.apellido }}
+    </div>
+    <div class="input-group mb-3 col-md-6">
+      <label for="{{ form.fecha_nacimiento.id_for_label }}">Fecha de Nacimiento: </label>
+      {{ form.fecha_nacimiento }}
+    </div>
+    <div class="input-group mb-3 col-md-6">
+      <label for="{{ form.genero.id_for_label }}">Género: </label>
+      {{ form.genero }}
+    </div>
+    <div class="input-group mb-3">
+      <label for="{{ form.direccion.id_for_label }}">Dirección: </label>
+      {{ form.direccion }}
+    </div>
+    <div class="input-group mb-3">
+      <label for="{{ form.telefono_contacto.id_for_label }}">Teléfono de Contacto: </label>
+      {{ form.telefono_contacto }}
+    </div>
+    <div class="input-group mb-3">
+      <label for="{{ form.correo_electronico.id_for_label }}">Correo Electrónico: </label>
+      {{ form.correo_electronico }}
+    </div>
+    <div class="input-group mb-3">
+      <label for="{{ form.fecha_contratacion.id_for_label }}">Fecha de Contratación: </label>
+      {{ form.fecha_contratacion }}
+    </div>
+    <div class="input-group mb-3">
+      <label for="{{ form.departamento.id_for_label }}">Departamento: </label>
+      {{ form.departamento }}
+    </div>
+    <div class="input-group mb-3">
+      <label for="{{ form.puesto.id_for_label }}">Puesto: </label>
+      {{ form.puesto }}
+    </div>
+ 
+    
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+  <a href="{% url 'empleado_list' %}" class="btn btn-secondary mt-3">Volver a la lista de empleados</a>
+</div>
+{% endblock %}
